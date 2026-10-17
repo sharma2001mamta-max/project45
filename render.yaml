@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: sonu-midnight-birthday
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: SITE_PASSWORD
+        sync: false
+      - key: SECRET_KEY
+        generateValue: true
